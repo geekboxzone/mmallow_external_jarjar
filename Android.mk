@@ -17,11 +17,13 @@ include $(CLEAR_VARS)
 
 LOCAL_SRC_FILES := $(call all-java-files-under, src/main)
 
+LOCAL_STATIC_JAVA_LIBRARIES := \
+    jarjar-asm \
+    jarjar-asm-commons \
+
 LOCAL_JAVA_LIBRARIES := \
-    asm-tools \
-    asm-commons \
-    maven-plugin-api \
-    apache-ant
+    jarjar-maven-plugin-api \
+    jarjar-apache-ant
 
 LOCAL_MODULE := jarjar
 LOCAL_MODULE_TAGS := optional
@@ -34,10 +36,10 @@ include $(BUILD_HOST_JAVA_LIBRARY)
 include $(CLEAR_VARS)
 
 LOCAL_PREBUILT_JAVA_LIBRARIES := \
-    asm-tools:lib/asm-4.0$(COMMON_JAVA_PACKAGE_SUFFIX) \
-    asm-commons:lib/asm-commons-4.0$(COMMON_JAVA_PACKAGE_SUFFIX) \
-    maven-plugin-api:lib/maven-plugin-api$(COMMON_JAVA_PACKAGE_SUFFIX) \
-    apache-ant:lib/apache-ant-1.9.4$(COMMON_JAVA_PACKAGE_SUFFIX)
+    jarjar-asm:lib/asm-4.0$(COMMON_JAVA_PACKAGE_SUFFIX) \
+    jarjar-asm-commons:lib/asm-commons-4.0$(COMMON_JAVA_PACKAGE_SUFFIX) \
+    jarjar-maven-plugin-api:lib/maven-plugin-api$(COMMON_JAVA_PACKAGE_SUFFIX) \
+    jarjar-apache-ant:lib/apache-ant-1.9.4$(COMMON_JAVA_PACKAGE_SUFFIX)
 
 LOCAL_MODULE_TAGS := optional
 
