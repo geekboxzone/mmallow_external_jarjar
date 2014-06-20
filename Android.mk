@@ -15,6 +15,8 @@
 LOCAL_PATH := $(call my-dir)
 include $(CLEAR_VARS)
 
+ifdef BUILD_JARJAR_FROM_SOURCE
+
 LOCAL_SRC_FILES := $(call all-java-files-under, src/main)
 
 LOCAL_STATIC_JAVA_LIBRARIES := \
@@ -44,3 +46,5 @@ LOCAL_PREBUILT_JAVA_LIBRARIES := \
 LOCAL_MODULE_TAGS := optional
 
 include $(BUILD_HOST_PREBUILT)
+
+endif
